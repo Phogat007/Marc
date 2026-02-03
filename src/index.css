@@ -1,0 +1,227 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Marc Design System - Playful hand-drawn social media automation tool
+All colors MUST be HSL for perfect design system integration.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Comic+Neue:wght@300;400;700&display=swap');
+
+@layer base {
+  :root {
+    /* Playful Color Palette */
+    --background: 45 50% 97%;  /* Cream/off-white */
+    --foreground: 210 25% 15%; /* Dark charcoal */
+
+    /* Safari Window & Cards */
+    --card: 0 0% 100%;
+    --card-foreground: 210 25% 15%;
+    --safari-border: 220 15% 85%;
+    --safari-header: 0 0% 98%;
+
+    /* Brand Colors - Light and Playful */
+    --primary: 25 95% 65%;     /* Orange accent */
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 25 100% 75%;
+
+    --pink: 340 100% 88%;      /* Light pink */
+    --peach: 15 100% 85%;      /* Peach */
+    --mint: 140 60% 80%;       /* Light green */
+    --sky: 200 100% 85%;       /* Light sky blue */
+
+    /* Semantic Colors */
+    --secondary: 140 60% 80%;  /* Light green */
+    --secondary-foreground: 210 25% 15%;
+
+    --muted: 45 30% 92%;
+    --muted-foreground: 210 15% 45%;
+
+    --accent: 340 100% 88%;    /* Light pink */
+    --accent-foreground: 210 25% 15%;
+
+    --destructive: 0 70% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    /* Interactive Elements */
+    --border: 220 25% 88%;
+    --input: 0 0% 100%;
+    --ring: 25 95% 65%;
+
+    /* Hand-drawn Effects */
+    --sketch-shadow: 0 4px 12px hsla(210, 25%, 15%, 0.1);
+    --sketch-shadow-lg: 0 8px 25px hsla(210, 25%, 15%, 0.15);
+    --organic-border: 2px solid hsl(var(--border));
+
+    /* Safari Window Styling */
+    --safari-radius: 12px;
+    --safari-button-red: 0 70% 65%;
+    --safari-button-yellow: 45 100% 65%;
+    --safari-button-green: 120 60% 65%;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-comic;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f0f0f0' fill-opacity='0.3'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+}
+
+@layer components {
+  /* Hand-drawn button styles */
+  .btn-sketch {
+    @apply relative transform transition-all duration-200;
+    border-radius: 15px 25px 20px 18px;
+    box-shadow: 0 3px 8px hsla(210, 25%, 15%, 0.15);
+  }
+  
+  .btn-sketch:hover {
+    @apply -translate-y-0.5 scale-105;
+    box-shadow: 0 5px 15px hsla(210, 25%, 15%, 0.2);
+  }
+
+  /* Safari window style */
+  .safari-window {
+    @apply bg-card border border-border rounded-t-xl overflow-hidden;
+    box-shadow: var(--sketch-shadow-lg);
+  }
+
+  .safari-header {
+    @apply bg-safari-header border-b border-border px-4 py-3 flex items-center gap-2;
+  }
+
+  .safari-button {
+    @apply w-3 h-3 rounded-full;
+  }
+
+  .safari-button-red {
+    @apply bg-red-400;
+  }
+
+  .safari-button-yellow {
+    @apply bg-yellow-400;
+  }
+
+  .safari-button-green {
+    @apply bg-green-400;
+  }
+
+  /* Organic shapes and hand-drawn feel */
+  .organic-border {
+    border-radius: 45% 55% 60% 40% / 40% 65% 35% 60%;
+  }
+
+  .sketch-underline {
+    @apply relative;
+  }
+
+  .sketch-underline::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 w-full h-0.5 bg-primary;
+    border-radius: 50px;
+    transform: scaleX(0.95) skew(-2deg, 1deg);
+  }
+
+  /* Wobble animation for interactive elements */
+  .wobble {
+    animation: wobble 0.6s ease-in-out;
+  }
+
+  @keyframes wobble {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(1deg); }
+    75% { transform: rotate(-1deg); }
+  }
+
+  /* Hand-drawn doodle styles */
+  .doodle-arrow {
+    @apply text-primary;
+    filter: drop-shadow(1px 1px 2px hsla(210, 25%, 15%, 0.1));
+  }
+
+  /* Scattered grid layout */
+  .scattered-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .scattered-box {
+    @apply bg-card border border-border p-4 rounded-lg transform;
+    box-shadow: var(--sketch-shadow);
+    border-radius: 8px 15px 10px 12px;
+  }
+
+  .scattered-box:nth-child(odd) {
+    transform: rotate(1deg);
+  }
+
+  .scattered-box:nth-child(even) {
+    transform: rotate(-1deg);
+  }
+
+  .scattered-box:hover {
+    @apply scale-105;
+    transform: rotate(0deg) scale(1.05);
+    transition: all 0.3s ease;
+  }
+}
